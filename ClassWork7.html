@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math.</title>
+</head>
+
+<body>
+    <script>
+        var res = Math.random();
+        alert(res);
+        res = Math.random();
+        alert(res)
+
+
+
+
+
+        // случайное значение от 0 до 9
+        alert(Math.floor(Math.random() * 10));
+        // случайное значение от 0 до 11
+        alert(Math.floor(Math.random() * 11));
+        // случайное значение от 1 до 10
+        alert(Math.floor(Math.random() * 20) + 1);
+
+
+        const today = new Date();
+        console.log(today);
+
+        Date.now()
+
+        let date1 = new Date("2021-05-17"); // год-месяц-день
+        console.log(date1);
+        let date2 = new Date("06/25/2021"); // месяц/день/год
+        console.log(date2);
+        const date3 = new Date('November 2, 1999 13:25:00');
+        console.log(date3);
+        const date4 = new Date('1999-11-02T13:25:00');
+        console.log(date4); ////////////////////////////////////////// самая частоиспользуемая
+        const date5 = new Date('02 November 1999 13:25:00');
+        console.log(date5);
+
+        const date6 = new Date(2022, 0, 12, 3, 45, 12, 500);
+        // год, месяц 0-11, день, часы, минуты, секунды,
+        // миллисекунды
+        console.log(date6);
+
+        console.log('Разница между датами в миллисекундах ',
+            date2 - date1);
+        console.log('Разница между датами в днях ',
+            Math.round((date2 - date1) / 24 / 60 / 60 / 1000));
+
+        console.log(Date.parse('11/08/2025'));
+
+        const date7 = new Date(1234567891234);
+        console.log(date7)
+
+        today = new Date();
+        let yesterday = new Date(today - 24 * 60 * 60 * 1000);
+        let tomorrow = new Date(today + 24 * 60 * 60 * 1000);
+        console.log(yesterday, today, tomorrow);
+
+        let userdata = prompt("Enter your birthday in year-month-day format", "2002-08-14");
+        let birthday = new Date(userdata) == 'Invalid Date' ? new Date() : new Date(userdata);
+        console.log(birthday);
+        let days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+        alert("You were born on " + days[birthday.getDay()]);
+
+        let d = new Date('02/07/2022');
+        let month = d.getMonth(), weekDay = d.getDay();
+        console.log(weekDay, d.toLocaleDateString());
+        for (let i = 0; i < 12; i++) {
+            if (i == month) continue;
+            d.setMonth(i);
+            if (weekDay == d.getDay())
+                console.log(d, d.toLocaleDateString());
+        }
+
+        let group1 = ['Deniels', 'Jonhson', 'Overton', 'Stufford', 'Templeton'], group2 = ['Greenwood', 'Liner', 'Takerman'];
+        let students = group1.splice(2, 2);
+        console.log(students);
+        group2 = group2.concat(students);
+        console.log(group1, group2);
+
+        let diana = {
+            firstname: 'Diana',
+            lastname: 'Fenton',
+            birthday: '07/22/1996',
+            showInfo: function () {
+                console.log('Student name: ' + this.firstname +
+                    ' ' + this.lastname);
+            },
+
+            showAge: function () {
+                const deltaTime = Date.now() -
+                    Date.parse(this.birthday);
+                const studentAge = Math.floor(deltaTime /
+                    (365 * 24 * 60 * 60 * 1000));
+                console.log(this.firstname + ' ' + this.lastname +
+                    ' is ' + studentAge + ' years old.');
+            }
+        }
+
+        let luis = {
+            firstname: 'Luis',
+            lastname: 'Melitano',
+            birthday: '02/06/2002',
+            showInfo: function () {
+                console.log('Student name: ' + this.firstname +
+                    ' ' + this.lastname);
+            },
+            showAge: function () {
+                const deltaTime = Date.now() -
+                    Date.parse(this.birthday);
+                const studentAge = Math.floor(deltaTime /
+                    (365 * 24 * 60 * 60 * 1000));
+                console.log(this.firstname + ' ' + this.lastname +
+                    'is' + studentAge + 'years old.');
+            }
+        }
+        console.log(diana);
+        diana.showInfo();
+        diana.showAge();
+        console.log(luis);
+        luis.showInfo();
+        luis.showAge();
+
+        function Student(firstname, lastname, birthday) {
+            this.firstname = firstname;
+            this.lastname = lastname;
+            this.birthday = birthday;
+            this.showInfo = function () {
+                console.log('Student name: ' + this.firstname +
+                    ' ' + this.lastname);
+            }
+            this.showAge = function () {
+                const deltaTime = Date.now() -
+                    Date.parse(this.birthday);
+                const studentAge = Math.floor(deltaTime /
+                    (365 * 24 * 60 * 60 * 1000));
+                console.log(this.firstname + ' ' + this.lastname +
+                    ' is ' + studentAge + ' years old.');
+            }
+        }
+        let michael = new Student('Michael', 'Dowson',
+            '11/23/2001');
+        michael.showInfo();
+        michael.showAge();
+        let lisa = new Student('Lisa', 'Paltrow', '08/12/1998');
+        lisa.showInfo();
+        lisa.showAge();
+        console.log(michael, lisa);
+
+        let katya = new Student('Katya', 'Danilova', '5/11/2002');
+        katya.showInfo();
+        katya.showAge();
+        console.log(katya)
+
+        function Student(firstname, lastname, birthday) {
+            this.firstname = firstname;
+            this.lastname = lastname;
+            this.birthday = birthday;
+        }
+        Student.prototype.showInfo = function () {
+            console.log('Student name: ' + this.firstname +
+                ' ' + this.lastname);
+        }
+        Student.prototype.showAge = function () {
+            const deltaTime = Date.now() -
+                Date.parse(this.birthday);
+            const studentAge = Math.floor(deltaTime /
+                (365 * 24 * 60 * 60 * 1000));
+            console.log(this.firstname + ' ' + this.lastname +
+                ' is ' + studentAge + ' years old.');
+        }
+        michael = new Student('Michael', 'Dowson',
+            '11/23/2001');
+        michael.showInfo();
+        michael.showAge();
+        lisa = new Student('Lisa', 'Paltrow', '08/12/1998');
+        lisa.showInfo();
+        lisa.showAge();
+        console.log(michael, lisa);
+
+        function Hotel(name, country, rooms, bookedRooms) {
+            this.name = name;
+            this.country = country;
+            this.rooms = rooms;
+            this.bookedRooms = bookedRooms;
+            this.availableRooms = function () {
+                return this.rooms - this.bookedRooms;
+            }
+            this.availablePercent = function () {
+                return Math.floor(this.availableRooms() /
+                    this.rooms * 100) + '%';
+            }
+        }
+
+        let DreamLand = new Hotel('DreamLand', 'Deutschland', 50, 5);
+        console.log(DreamLand.availableRooms(), DreamLand.availablePercent());
+
+        let Disney = new Hotel('Disney', 'France', 70, 30);
+        console.log(Disney.availableRooms(), Disney.availablePercent());
+
+        Disney.bookedRooms += 4;
+        console.log(Disney.availableRooms(), Disney.availablePercent());
+
+        function Hotel(name, country, rooms, bookedRooms) {
+            this.name = name;
+            this.country = country;
+            this.rooms = rooms;
+            this.bookedRooms = bookedRooms;
+        }
+        Hotel.prototype.availableRooms = function () {
+            return this.rooms - this.bookedRooms;
+        }
+        Hotel.prototype.availablePercent = function () {
+            return Math.floor(this.availableRooms() /
+                this.rooms * 100) + '%';
+        }
+
+        
+        antiqueRomanPalace.bookedRooms -= 12;// было 130 из 270
+        console.log(antiqueRomanPalace.availableRooms(),
+            antiqueRomanPalace.availablePercent());
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

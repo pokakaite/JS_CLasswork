@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>События</title>
+    <style>
+        body {
+            position: relative;
+            height: 2000px;
+        }
+
+        div {
+            /* background: rgb(255, 0, 179); */
+            background: red;
+            background-size: 50px;
+            height: 200px;
+            width: 200px;
+            position: absolute;
+        }
+    </style>
+
+    <!-- <style>
+        div {
+            background: rgb(171, 8, 192);
+            height: 100px;
+            width: 500px;
+        }
+    </style> -->
+
+</head>
+
+<body onclick="moveStranger(event)">
+    <div id="stranger"></div>
+    <script>
+        function moveStranger(e) {
+            stranger.style.left = e.pageX + 'px'; //либо clientX
+            stranger.style.top = e.pageY + 'px';//либо clientY
+            stranger.style.background = "url(https://img.freepik.com/free-photo/cute-cat-relaxing-indoors_23-2150692896.jpg?w=740&t=st=1702310388~exp=1702310988~hmac=c476bd84b3d47b4a515684abc4de511fa518fa08225a291e9b6393d43b7b8274)";
+        }
+    </script>
+</body>
+
+<!-- <body onclick="out.innerText = 'Click detected over: ' + event.target.nodeName; console.log(event)"> -->
+<!-- <div></div>
+    <p id="out"></p> -->
+
+<!-- <div onclick="alert('DIV have been clicked')">
+    </div> -->
+<!-- 
+    <div id="clickableDiv">
+    </div> -->
+
+<!-- <script> -->
+<!-- // clickableDiv.onclick = function () {
+        //     alert('DIV have been clicked')
+        // }
+        // x = 10;
+        // "x=${x}";
+        // 'x=${x}';
+        // `x=${x}`;
+
+        // clickableDiv.addEventListener("click", function () {
+        //     alert('DIV have been clicked')
+        // }) -->
+<!-- </script> -->
+<!-- 
+</body> -->
+
+</html>

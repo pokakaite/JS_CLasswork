@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Функции. Массивы</title>
+    <style>
+        #Log {
+            font-size: xx-large;
+            font-weight: bold;
+            margin: 0;
+            color: violet;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p id="Log"></p>
+    <script>
+
+        function incAndLog(x) {
+            x = x + 1;
+            alert("inc x = " + x);
+            Log.innerHTML += "<br> inc x = " + x; //добавляет значение идентификатора в HTML
+        }
+        x = 2; ////////////////// сначала идут они, хоть и пишутся позже всего
+        Log.innerHTML += "x = " + x;
+        incAndLog(x);
+        Log.innerHTML += "<br> x = " + x;
+
+        function logArguments() {
+            for (let i = 0; i < arguments.length; i++) //////тут всегда < или > а не <= и тд
+                console.log("argument" + (i + 1) + " = " + arguments[i])
+        }
+
+        for (i = 0; i < 3; i++)
+        logArguments(i, i + 3, 2 * i, i * i)
+
+        window.x /// доступ ко всем функциям/переменным (глобальным)
+
+        let y; // объявление
+        y = 10; // присваивание значений
+        let y1 = 10 // инициализация
+
+        function prepareStr() {
+            str = "Эта строка была написана функцией.";
+        }
+
+        prepareStr();
+        Log.innerHTML = "str = " + str;
+
+        function showHoisting() {
+            console.log("x до объявления: " + x);
+            var x = 2; //x поднялась вверх, а значение нет
+            console.log("x после объявления: " + x);
+        }
+
+        function factorial(n){
+            if(n==1)
+            return 1;
+        return n * factorial(n-1);
+        }
+
+        var num = +prompt("Final number:");
+        alert(stringWithNumbers(num));
+        function stringWithNumbers(n) {
+            if (n == 1) return "1";
+            return stringWithNumbers(n - 1) + ", " + n;
+        };
+
+        function stringWithNumbers(n) {
+            if (n == 1)
+                return "1";
+            else if (typeof (n != "number"))
+                return "Ошибка, введите число еще раз."
+            else
+                return n + ',' + stringWithNumbers(n - 1);
+        };
+
+        var obj = new Object();
+        var obj2 = {};
+
+        var student = new Object();
+        student["Name"] = "Katya";
+
+        student['Age'] = 23;
+        alert(student[0]);
+        alert(student['Age']);
+
+        var firm = {};
+
+        firm.Name = "Star Inc";
+        firm.Adress = "Somewhere street 5";
+        alert(firm.Name);
+        alert(firm.Adress);
+
+        delete firm.Name;
+
+        var obj = {};
+        obj.Name = "Oleg";
+        if ("Age" in obj) {
+            alert("есть");
+        }
+        else {
+            alert("нет")
+        }
+
+        var student = {
+            name: "Daria",
+            lastName: "Kislicina",
+            age: 23,
+            adress: {
+                street: "Tidfr",
+                city: "Odessa"
+            }
+        };
+
+        alert(student);
+
+        var rect = {
+            x: 0,
+            y: 0,
+            endX: 10,
+            endY: 10
+        }
+
+        for (var tempProperty in rect) {
+            alert(tempProperty);
+            alert(rect[tempProperty]);
+        }
+
+        var arrayName = new Array();
+        var arrayName = new Array(5); //// длина
+
+        
+
+
+    </script>
+</body>
+
+</html>
